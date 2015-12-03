@@ -14,6 +14,7 @@ import android.support.v4.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -42,15 +43,20 @@ import view.XListView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MarchtFragment extends Fragment implements XListView.IXListViewListener {
+public class MarchtFragment extends Fragment implements XListView.IXListViewListener,AdapterView.OnItemClickListener{
     private XListView mContentList;
     private ProgressBar mProgress;
+    private OnFragmentItemListener mListener;
     private LruCache<String, Bitmap> mMemoryCache;
     private String url = "http://192.168.1.129:8080/qw/around";
 //    private String url = "http://192.168.1.127/around";
     private PractiveAdapter adapter;
     private Boolean isUp = false;
 
+    public static Fragment newInstance(){
+        MarchtFragment marchtFragment = new MarchtFragment();
+        return marchtFragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,13 +67,18 @@ public class MarchtFragment extends Fragment implements XListView.IXListViewList
 //        mProgress = (ProgressBar) v.findViewById(R.id.flash_progress);
         mContentList.setPullLoadEnable(true);
 //        mContentList.setEmptyView(mProgress);    //listview没有加载上时启动
-        mContentList.setXListViewListener(this);    //注册
+        mContentList.setXListViewListener(this);    //注册上下拉刷新事件
+        mContentList.setOnItemClickListener(this);   //注册item点击事件
         adapter = new PractiveAdapter(getActivity());
         connetHttpGetStr(url);
         mContentList.setAdapter(adapter);
 
+
         return v;
     }
+
+
+
 
     public void connetHttpGetStr(String url) {
         AsyncHttpClient client = new AsyncHttpClient();
@@ -109,6 +120,39 @@ public class MarchtFragment extends Fragment implements XListView.IXListViewList
         }
 
         return null;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Logs.e("11111111111111111");
+        onButtonPressed();
+    }
+
+    public void onButtonPressed() {
+        if (mListener != null) {
+            mListener.onFragmentInteraction();
+        }
+    }
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentItemListener) {
+            mListener = (OnFragmentItemListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    public interface OnFragmentItemListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction();
     }
 
     /*
@@ -193,21 +237,6 @@ public class MarchtFragment extends Fragment implements XListView.IXListViewList
             String coupon = (String) item.get("coupon");
             String location = (String) item.get("location");
             String distance = (String) item.get("distance");
-
-//			new AsyncTask<String, Void, Bitmap>() {
-//
-//				@Override
-//				protected Bitmap doInBackground(String... params) {
-//					Bitmap bitmap = downLoadImage(params[0]);
-//					return bitmap;
-//				}
-//
-//				protected void onPostExecute(Bitmap result) {
-//					if (result != null) {
-//						viewHolder.iconImageitem.setImageBitmap(result);
-//					}
-//				};
-//			}.execute(picUrl);
 
             loadBitmap(getResources(), picUrl, viewHolder.iconImageitem,
                     R.mipmap.ic_launcher);
