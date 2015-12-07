@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import fragment.MainFragmentActivity;
+import fragment.list.ListMainActivity;
+import fragment.tab.FragmentTabs;
+import fragment.tab.MyTabActivity;
 import fragment.test.TestActivity;
 
 public class TestActivityList extends ListActivity {
@@ -33,8 +36,10 @@ public class TestActivityList extends ListActivity {
 		ArrayList<HashMap<String, Object>> data = new ArrayList<HashMap<String, Object>>();
 		addItem(data, "MainFragmentActivity", MainFragmentActivity.class);
 		addItem(data, "TestActivity", TestActivity.class);
-		
-		
+		addItem(data, "ListMainActivity", ListMainActivity.class);
+		addItem(data, "FragmentTabs", FragmentTabs.class);
+		addItem(data, "MyTabActivity", MyTabActivity.class);
+
 		return data;
 	}
 	

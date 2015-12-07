@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
+import fragment.Logs;
 import fragment.R;
 
 public class AlertDialogFragment extends DialogFragment {
@@ -42,7 +43,7 @@ public class AlertDialogFragment extends DialogFragment {
             }
         }).setIcon(R.mipmap.ic_launcher).setMessage("欢迎来到" + mArgs);
 
-
+        Logs.e("11111111111111111111"+mArgs);
         return dialog.create();
     }
 
