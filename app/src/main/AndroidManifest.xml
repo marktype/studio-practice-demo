@@ -36,7 +36,9 @@
         <activity android:name=".test.TestActivity" />
         <activity android:name=".tab.FragmentTabs" />
         <activity android:name=".list.ListMainActivity" />
-        <activity android:name=".tab.MyTabActivity"></activity>
+        <activity android:name=".tab.MyTabActivity" />
+        <activity android:name="costomview.MyViewTestActivity" />
+        <activity android:name="slidingmenu.test.slidingmenuActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:myapp="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <costomview.MyOwnView
+        android:id="@+id/my_title_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        myapp:text_first="左一"
+        myapp:text_two="中间"
+        myapp:text_three="右一"
+
+        />
+
+    <costomview.MyView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:isshow="true"
+        app:textbankground="@android:color/holo_blue_light"
+        app:textcontent="自定义控件测试"
+        app:textlocation="center"
+        app:textsize="20sp"
+        />
+</LinearLayout>

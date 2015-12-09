@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyView">
+        <attr name="textcontent" format="string"/>
+        <attr name="textcolor" format="color"/>
+        <attr name="textbankground" format="reference"/>
+        <attr name="isshow" format="boolean"></attr>
+        <attr name="textsize" format="dimension"/>
+        <attr name="textlocation" format="enum">
+            <enum name="center" value="0"/>
+            <enum name="left" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="MyOwnView">
+        <attr name="text_first" format="string" />
+        <attr name="text_two" format="string"/>
+        <attr name="text_three" format="string"/>
+
+    </declare-styleable>
+</resources>

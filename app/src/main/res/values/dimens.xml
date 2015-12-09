@@ -7,4 +7,5 @@
     <dimen name="widget_text_size">18sp</dimen>
     <dimen name="widget_text_pading">10dp</dimen>
 
+    <dimen name="slidingmenu_offest">100dp</dimen>
 </resources>

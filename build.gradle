@@ -3,6 +3,9 @@
 buildscript {
     repositories {
         jcenter()
+        flatDir {         //使用或生成aar文件时使用
+            dirs 'libs'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.0.0-alpha1'
@@ -15,6 +18,9 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        flatDir {             //使用或生成aar文件时使用
+            dirs 'libs'
+        }
     }
 }
 

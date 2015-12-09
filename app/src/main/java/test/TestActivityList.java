@@ -10,11 +10,13 @@ import android.widget.SimpleAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import costomview.MyViewTestActivity;
 import fragment.MainFragmentActivity;
 import fragment.list.ListMainActivity;
 import fragment.tab.FragmentTabs;
 import fragment.tab.MyTabActivity;
 import fragment.test.TestActivity;
+import slidingmenu.test.slidingmenuActivity;
 
 public class TestActivityList extends ListActivity {
 	@Override
@@ -39,6 +41,8 @@ public class TestActivityList extends ListActivity {
 		addItem(data, "ListMainActivity", ListMainActivity.class);
 		addItem(data, "FragmentTabs", FragmentTabs.class);
 		addItem(data, "MyTabActivity", MyTabActivity.class);
+		addItem(data, "MyViewTestActivity", MyViewTestActivity.class);
+		addItem(data, "slidingmenuActivity", slidingmenuActivity.class);
 
 		return data;
 	}

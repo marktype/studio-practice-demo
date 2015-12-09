@@ -1,15 +1,15 @@
 package fragment.tab;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import fragment.Logs;
 import fragment.R;
 
-public class MyTabActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
+public class MyTabActivity extends FragmentActivity implements RadioGroup.OnCheckedChangeListener{
     private RadioGroup mRadioGroup;
     private RadioButton mOneBtn,mTwoBtn,mThreeBtn;
     private TabTwoFragment tabTwoFragment;
@@ -21,10 +21,10 @@ public class MyTabActivity extends AppCompatActivity implements RadioGroup.OnChe
 
         mRadioGroup = (RadioGroup) findViewById(R.id.raidoGroupTab);
         mRadioGroup.setOnCheckedChangeListener(this);
-
+        tabOneFragment = TabOneFragment.newInstance();
 
         //进入时默认选中
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_tab_content,TabOneFragment.newInstance()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_tab_content,tabOneFragment).commit();
 //        ((RadioButton) mRadioGroup.getChildAt(0)).toggle(); // 默认选中第一项,此时此方法无效
 
     }
@@ -57,6 +57,7 @@ public class MyTabActivity extends AppCompatActivity implements RadioGroup.OnChe
                     tabOneFragment = TabOneFragment.newInstance();
                     ft.add(R.id.fragment_tab_content,TabOneFragment.newInstance());
                 }else {
+                    Logs.e("else 11111111111111");
                     ft.show(tabOneFragment);
                 }
                 break;
@@ -66,6 +67,7 @@ public class MyTabActivity extends AppCompatActivity implements RadioGroup.OnChe
                     tabTwoFragment = TabTwoFragment.newInstance();
                     ft.add(R.id.fragment_tab_content,TabTwoFragment.newInstance());
                 }else {
+                    Logs.e("else22222222222");
                     ft.show(tabTwoFragment);
                 }
                 break;
@@ -75,6 +77,7 @@ public class MyTabActivity extends AppCompatActivity implements RadioGroup.OnChe
                     tabThreeFragment = TabOneFragment.newInstance();
                     ft.add(R.id.fragment_tab_content,TabOneFragment.newInstance());
                 }else {
+                    Logs.e("else 33333333333333");
                     ft.show(tabThreeFragment);
                 }
                 break;
@@ -85,11 +88,14 @@ public class MyTabActivity extends AppCompatActivity implements RadioGroup.OnChe
     private void hideFragments(FragmentTransaction transaction) {
         if (tabOneFragment != null) {
             transaction.hide(tabOneFragment);
+            Logs.e("hide   ----------one");
         }
         if (tabTwoFragment != null) {
+            Logs.e("hide   ----------two");
             transaction.hide(tabTwoFragment);
         }
         if (tabThreeFragment != null) {
+            Logs.e("hide   ----------three");
             transaction.hide(tabThreeFragment);
         }
     }
