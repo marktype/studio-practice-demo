@@ -13,7 +13,8 @@ public class MyTabActivity extends FragmentActivity implements RadioGroup.OnChec
     private RadioGroup mRadioGroup;
     private RadioButton mOneBtn,mTwoBtn,mThreeBtn;
     private TabTwoFragment tabTwoFragment;
-    private TabOneFragment tabOneFragment,tabThreeFragment;
+    private TabOneFragment tabOneFragment;
+    private TabThreeFragment tabThreeFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,8 @@ public class MyTabActivity extends FragmentActivity implements RadioGroup.OnChec
         mRadioGroup = (RadioGroup) findViewById(R.id.raidoGroupTab);
         mRadioGroup.setOnCheckedChangeListener(this);
         tabOneFragment = TabOneFragment.newInstance();
+
+
 
         //进入时默认选中
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_tab_content,tabOneFragment).commit();
@@ -55,7 +58,7 @@ public class MyTabActivity extends FragmentActivity implements RadioGroup.OnChec
                 if (tabOneFragment == null){
                     Logs.e("1111111111111");
                     tabOneFragment = TabOneFragment.newInstance();
-                    ft.add(R.id.fragment_tab_content,TabOneFragment.newInstance());
+                    ft.add(R.id.fragment_tab_content,tabOneFragment);
                 }else {
                     Logs.e("else 11111111111111");
                     ft.show(tabOneFragment);
@@ -65,7 +68,7 @@ public class MyTabActivity extends FragmentActivity implements RadioGroup.OnChec
                 if (tabTwoFragment == null){
                     Logs.e("2222222222222222");
                     tabTwoFragment = TabTwoFragment.newInstance();
-                    ft.add(R.id.fragment_tab_content,TabTwoFragment.newInstance());
+                    ft.add(R.id.fragment_tab_content,tabTwoFragment);
                 }else {
                     Logs.e("else22222222222");
                     ft.show(tabTwoFragment);
@@ -74,8 +77,8 @@ public class MyTabActivity extends FragmentActivity implements RadioGroup.OnChec
             case R.id.raidoTab3:
                 if (tabThreeFragment == null){
                     Logs.e("33333333333333333");
-                    tabThreeFragment = TabOneFragment.newInstance();
-                    ft.add(R.id.fragment_tab_content,TabOneFragment.newInstance());
+                    tabThreeFragment = TabThreeFragment.newInstance();
+                    ft.add(R.id.fragment_tab_content,tabThreeFragment);
                 }else {
                     Logs.e("else 33333333333333");
                     ft.show(tabThreeFragment);

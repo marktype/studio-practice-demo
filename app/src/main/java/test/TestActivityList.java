@@ -10,13 +10,16 @@ import android.widget.SimpleAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import anim.secordview.FrameMainActivity;
 import costomview.MyViewTestActivity;
 import fragment.MainFragmentActivity;
 import fragment.list.ListMainActivity;
 import fragment.tab.FragmentTabs;
 import fragment.tab.MyTabActivity;
 import fragment.test.TestActivity;
+import pop.secordview.PopMainActivity;
 import slidingmenu.test.slidingmenuActivity;
+import volley.VolleyMainActivity;
 
 public class TestActivityList extends ListActivity {
 	@Override
@@ -43,6 +46,9 @@ public class TestActivityList extends ListActivity {
 		addItem(data, "MyTabActivity", MyTabActivity.class);
 		addItem(data, "MyViewTestActivity", MyViewTestActivity.class);
 		addItem(data, "slidingmenuActivity", slidingmenuActivity.class);
+		addItem(data, "volley框架", VolleyMainActivity.class);
+		addItem(data, "弹框二级菜单", PopMainActivity.class);
+		addItem(data, "图片动画，逐帧实现", FrameMainActivity.class);
 
 		return data;
 	}

@@ -11,12 +11,17 @@
         android:layout_height="wrap_content"
         app:text_first="侧滑"
         app:text_two="滑屏测试"/>
-    <TextView
-        android:layout_below="@id/slidingmenu_my_view"
+    <!--<TextView-->
+        <!--android:layout_below="@id/slidingmenu_my_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/slidingmenu_txt"-->
+        <!--android:text="侧滑测试"-->
+        <!--android:gravity="center"-->
+        <!--android:textSize="20sp"/>-->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/slidingmenu_txt"
-        android:text="侧滑测试"
-        android:gravity="center"
-        android:textSize="20sp"/>
+        android:id="@+id/slidingmenu_fragment"
+        android:layout_below="@id/slidingmenu_my_view"/>
 </RelativeLayout>

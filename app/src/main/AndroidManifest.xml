@@ -38,7 +38,10 @@
         <activity android:name=".list.ListMainActivity" />
         <activity android:name=".tab.MyTabActivity" />
         <activity android:name="costomview.MyViewTestActivity" />
-        <activity android:name="slidingmenu.test.slidingmenuActivity"></activity>
+        <activity android:name="slidingmenu.test.slidingmenuActivity" />
+        <activity android:name="volley.VolleyMainActivity" />
+        <activity android:name="pop.secordview.PopMainActivity" />
+        <activity android:name="anim.secordview.FrameMainActivity"></activity>
     </application>
 
 </manifest>

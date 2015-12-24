@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Android-ImageCaches-library" />
+            <option value="$PROJECT_DIR$/android-expandpoptab-library" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
@@ -18,6 +19,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Android-ImageCaches-library" />
+            <option value="$PROJECT_DIR$/android-expandpoptab-library" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
