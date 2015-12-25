@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.baidumap.BaiduMapActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -49,6 +51,7 @@ public class TestActivityList extends ListActivity {
 		addItem(data, "volley框架", VolleyMainActivity.class);
 		addItem(data, "弹框二级菜单", PopMainActivity.class);
 		addItem(data, "图片动画，逐帧实现", FrameMainActivity.class);
+		addItem(data, "baidu地图测试", BaiduMapActivity.class);
 
 		return data;
 	}
