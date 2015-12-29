@@ -34,6 +34,7 @@ public class BaiduMapActivity extends AppCompatActivity {
     private MapView mMapView;
     private BaiduMap mBaiduMap;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
