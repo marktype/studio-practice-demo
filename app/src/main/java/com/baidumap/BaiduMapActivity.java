@@ -12,10 +12,12 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
-import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
@@ -38,7 +40,7 @@ public class BaiduMapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SDKInitializer.initialize(getApplicationContext());
+
         setContentView(R.layout.activity_baidu_map_layout);
         mLocationClient = new LocationClient(getApplicationContext());     //声明LocationClient类
         mLocationClient.registerLocationListener(myListener);    //注册监听函数
@@ -66,15 +68,26 @@ public class BaiduMapActivity extends AppCompatActivity {
         mBaiduMap = mMapView.getMap();
         //普通地图
         mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+//        getMapView();
     }
 
+    /*
+    * 在地图上显示此时坐标位置
+    * */
     public void getMapView(BDLocation location) {
 
 
-        Logs.e("1111+"+location.getLatitude()+"--------22222------+"+location.getLongitude());
+//        Logs.e("1111+"+location.getLatitude()+"--------22222------+"+location.getLongitude());
         //设置坐标
         LatLng point = new LatLng(location.getLatitude(), location.getLongitude());
-        Logs.e("33333333333+"+location.getLatitude()+"--------444444444------+"+location.getLongitude());
+//        Logs.e("33333333333+"+location.getLatitude()+"--------444444444------+"+location.getLongitude());
+
+        MapStatus mMapStatus = new MapStatus.Builder().target(point).zoom(15).build();
+        MapStatusUpdate mMapStatusUpdate = MapStatusUpdateFactory
+                .newMapStatus(mMapStatus);
+//        mBaiduMap = mMapView.getMap();
+        mBaiduMap.setMapStatus(mMapStatusUpdate);
+
         //构建Marker图标
         BitmapDescriptor bitmap = BitmapDescriptorFactory
                 .fromResource(R.mipmap.info_map);
@@ -176,5 +189,28 @@ public class BaiduMapActivity extends AppCompatActivity {
 
             getMapView(location);
         }
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // 在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
+        mMapView.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 在activity执行onResume时执行mMapView. onResume ()，实现地图生命周期管理
+        mMapView.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // 在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理
+        mMapView.onPause();
     }
 }

@@ -38,4 +38,5 @@ dependencies {
     compile files('libs/volly-1.0.11.jar')
     compile project(':android-expandpoptab-library')
     compile files('libs/BaiduLBS_Android.jar')
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }
