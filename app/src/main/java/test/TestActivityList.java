@@ -23,6 +23,7 @@ import fragment.tab.MyTabActivity;
 import fragment.test.TestActivity;
 import pop.secordview.PopMainActivity;
 import slidingmenu.test.slidingmenuActivity;
+import sms.send.SendMessageActivity;
 import volley.VolleyMainActivity;
 
 public class TestActivityList extends ListActivity {
@@ -56,6 +57,7 @@ public class TestActivityList extends ListActivity {
 		addItem(data, "baidu地图测试", BaiduMapActivity.class);
 		addItem(data, "飞行文字", MainActivity.class);
 		addItem(data, "手势测试", GestureActivity.class);
+		addItem(data, "自动发送短信", SendMessageActivity.class);
 
 		return data;
 	}
