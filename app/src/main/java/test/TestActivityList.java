@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import anim.secordview.FrameMainActivity;
+import anim.secordview.GestureActivity;
 import anim.secordview.MainActivity;
 import costomview.MyViewTestActivity;
 import fragment.MainFragmentActivity;
@@ -54,6 +55,7 @@ public class TestActivityList extends ListActivity {
 		addItem(data, "图片动画，逐帧实现", FrameMainActivity.class);
 		addItem(data, "baidu地图测试", BaiduMapActivity.class);
 		addItem(data, "飞行文字", MainActivity.class);
+		addItem(data, "手势测试", GestureActivity.class);
 
 		return data;
 	}

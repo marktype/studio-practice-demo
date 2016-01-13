@@ -7,12 +7,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="anim.secordview.FrameMainActivity">
+    tools:context="anim.secordview.GestureActivity">
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/animator_img"
-        android:src="@anim/progress_circle_loading_anim"
-        android:layout_centerInParent="true"/>
+        android:textSize="20sp"
+        android:layout_centerInParent="true"
+        android:text="这是一个关于手势滑动的测试,向下关闭"/>
 </RelativeLayout>
